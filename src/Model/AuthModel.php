@@ -11,7 +11,9 @@ class AuthModel extends Runner
     {
 
 $sql = <<<SQL
-SELECT users.login, users.pass, users.name, users.surname, user_group.cod, user_group.description FROM `users`,`user_group` WHERE user_group.id = users.user_group_id AND users.login = '$login' AND users.pass = '$pass';
+SELECT workers.name, workers.surname, workers.login, workers.password, group_workers.group_workers, group_workers.description 
+FROM `workers`,`group_workers` 
+WHERE group_workers.id = workers.group_workers AND workers.login = '$login' AND workers.password = '$pass';
 SQL;
 
         return $this->runSQL($sql)[0];

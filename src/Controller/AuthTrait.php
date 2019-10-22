@@ -14,6 +14,8 @@ trait AuthTrait
             'loginURL' => '?t=' . $this->shortClassName() . '&a=login'
         ]);
     }
+    
+
     public function actionLogin()
     {
         if (Auth::registerUser($_POST['user'], $_POST['pass'])) {
@@ -22,6 +24,8 @@ trait AuthTrait
             $this->redirect('?a=loginform');
         }
     }
+
+
     public function actionLogout()
     {
         Auth::unRegisterUser();

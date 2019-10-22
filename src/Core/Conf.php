@@ -8,7 +8,7 @@ class Conf
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'dbname' => 'eshop'
+        'dbname' => 'my_organization'
     ];
     const DEFAULT_CONTROLLER = 'Site';
     const DEFAULT_ACTION = 'Home';

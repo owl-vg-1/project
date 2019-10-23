@@ -39,6 +39,9 @@ use App\View\Helper\HTML;
           <a class="nav-link" href="?t=usergroup&a=show">Users Group</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="?t=customer&a=show">Список заказчиков</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="?t=feedback&a=show">Feedback</a>
         </li>
         <li class="nav-item">

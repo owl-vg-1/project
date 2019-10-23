@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Окт 23 2019 г., 00:36
+-- Время создания: Окт 24 2019 г., 00:07
 -- Версия сервера: 10.3.13-MariaDB-log
 -- Версия PHP: 7.2.22
 
@@ -27,27 +27,29 @@ USE `my_organization`;
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `costomer`
+-- Структура таблицы `customer`
 --
 
-CREATE TABLE `costomer` (
-  `id` int(11) NOT NULL,
-  `сustomer_name` varchar(150) NOT NULL,
-  `сustomer_UNP` int(10) NOT NULL,
-  `customer_address` varchar(300) NOT NULL,
-  `costomer_contacts` text NOT NULL,
-  `costomer_notice` text NOT NULL
+CREATE TABLE `customer` (
+  `id` int(11) NOT NULL COMMENT '№',
+  `сustomer_name` varchar(150) NOT NULL COMMENT 'Наименование',
+  `сustomer_UNP` int(10) NOT NULL COMMENT 'УНП',
+  `customer_address` varchar(300) NOT NULL COMMENT 'Адрес',
+  `costomer_contacts` text NOT NULL COMMENT 'Контакты',
+  `costomer_notice` text NOT NULL COMMENT 'Примечание'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 --
--- Дамп данных таблицы `costomer`
+-- Дамп данных таблицы `customer`
 --
 
-INSERT INTO `costomer` (`id`, `сustomer_name`, `сustomer_UNP`, `customer_address`, `costomer_contacts`, `costomer_notice`) VALUES
+INSERT INTO `customer` (`id`, `сustomer_name`, `сustomer_UNP`, `customer_address`, `costomer_contacts`, `costomer_notice`) VALUES
 (1, 'ООО', 123456789, 'Адрес ООО', 'Контакты ООО', 'Что-то об ООО'),
 (2, 'ЧУП', 234567891, 'Адрес ЧУП', 'Контакты ЧУП', 'Описание ЧУП'),
 (3, 'ОАО', 345678912, 'Адрес ОАО', 'Контакты ОАО', 'Что-то об ОАО'),
-(5, 'ИП', 567891234, 'Адрес ИП', 'Контакты ИП', 'Что-то об ИП');
+(5, 'ИП', 567891234, 'Адрес ИП', 'Контакты ИП', 'Что-то об ИП'),
+(6, '111', 111, '111', '111', '111'),
+(7, '222', 222, '222', '222', '222333');
 
 -- --------------------------------------------------------
 
@@ -117,17 +119,18 @@ CREATE TABLE `workers` (
 --
 
 INSERT INTO `workers` (`id`, `name`, `surname`, `login`, `password`, `group_workers`) VALUES
-(4, 'Иванов', 'Иван', 'iviv', '123', 1),
-(5, 'Петр', 'Петров', 'pepe', '123', 1);
+(6, 'Алексей', 'Алексеев', 'alex', '123', 1),
+(7, 'Борис', 'Борисов', 'bor', '123', 3),
+(8, 'Вова', 'Вовин', 'vov', '123', 2);
 
 --
 -- Индексы сохранённых таблиц
 --
 
 --
--- Индексы таблицы `costomer`
+-- Индексы таблицы `customer`
 --
-ALTER TABLE `costomer`
+ALTER TABLE `customer`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `сustumer_UNP` (`сustomer_UNP`);
 
@@ -163,10 +166,10 @@ ALTER TABLE `workers`
 --
 
 --
--- AUTO_INCREMENT для таблицы `costomer`
+-- AUTO_INCREMENT для таблицы `customer`
 --
-ALTER TABLE `costomer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+ALTER TABLE `customer`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '№', AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `group_workers`
@@ -190,7 +193,7 @@ ALTER TABLE `status_objects`
 -- AUTO_INCREMENT для таблицы `workers`
 --
 ALTER TABLE `workers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -200,7 +203,7 @@ ALTER TABLE `workers`
 -- Ограничения внешнего ключа таблицы `objects`
 --
 ALTER TABLE `objects`
-  ADD CONSTRAINT `objects_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `costomer` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `objects_ibfk_1` FOREIGN KEY (`id_customer`) REFERENCES `customer` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `objects_ibfk_2` FOREIGN KEY (`status_objects`) REFERENCES `status_objects` (`id`) ON UPDATE CASCADE;
 
 --

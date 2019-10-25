@@ -9,7 +9,7 @@ use TexLab\MyDB\DbEntity;
 
 class UsersController extends AbstractTableController
 {
-    protected $tableName = 'workers';
+    protected $tableName = 'users';
     protected $viewPatternsPath = 'templates/table/';
     protected $pageSize = 3;
     
@@ -21,7 +21,7 @@ class UsersController extends AbstractTableController
 
     public function actionShowEditForm()
     {
-        $tableUsersGroup = new DbEntity('group_workers', DB::Link(Conf::MYSQL));
+        $tableUsersGroup = new DbEntity('user_group', DB::Link(Conf::MYSQL));
 
         $this->view->setPatternsPath('templates/usersTable/');
 
@@ -38,7 +38,7 @@ class UsersController extends AbstractTableController
 
     public function actionShowAddForm()
     {
-        $tableUsersGroup = new DbEntity('group_workers', DB::Link(Conf::MYSQL));
+        $tableUsersGroup = new DbEntity('user_group', DB::Link(Conf::MYSQL));
 
         $this->view->setPatternsPath('templates/usersTable/');
         

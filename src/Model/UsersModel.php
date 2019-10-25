@@ -11,9 +11,9 @@ class UsersModel extends DbEntity
     {
         $this
         ->reset()
-        ->setSelect("`workers`.`id`, `workers`.`name`, `workers`.`surname`, `workers`.`login`, `workers`.`password`, `group_workers`.`description` AS 'workers_group_id'")
-        ->setFrom("`workers`, `group_workers`")
-        ->setWhere("`group_workers`.`id` = `workers`.`user_group_id`")
+        ->setSelect("`users`.`id`, `users`.`login`, `users`.`pass`, `users`.`name`, `users`.`surname`, `user_group`.`description` AS 'user_group_id'")
+        ->setFrom("`user_group`, `users`")
+        ->setWhere("`user_group`.`id` = `users`.`user_group_id`")
         ->setOrderBy("`users`.`id`");
         return parent::getPage($page);
     }

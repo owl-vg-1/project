@@ -1,10 +1,10 @@
 {
-    "leader": [],
-    "worker": [
+    "adm": [],
+    "usr": [
         "UserGroupController",
         "UsersController"
     ],
-    "user": [
+    "dft": [
         "tableOneController",
         "tableTwoController",
         "UserGroupController",

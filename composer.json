@@ -17,7 +17,6 @@
     "process-timeout": 0
   },
   "scripts": {
-    "test": "phpunit --testsuite suite",
-    "pulldb": "php db/createDataBase.php"
+    "test": "phpunit --testsuite suite"
   }
 }
